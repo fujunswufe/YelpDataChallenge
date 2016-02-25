@@ -20,4 +20,4 @@ ggplot(df, aes(x = "", y = value, fill = variable)) +
       geom_bar(width = 1, stat = "identity") +
       scale_fill_manual(values = c("blue", "green")) +
       coord_polar("y", start = pi / 3) +
-      labs(title = "percentile for review with tips in tips")
+      labs(title = "percentile for tips with reviews in tips")
