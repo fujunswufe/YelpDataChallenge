@@ -56,36 +56,36 @@ if __name__ == "__main__":
     print "tips_dict: ", len(tips_dict)
     print "tip_review: ", len(tip_review)
 
-count = 0.0
-len_tip = 0.0
+    count = 0.0
+    len_tip = 0.0
 
-for k, v in tips_dict.items():
-    for tip in v:
-        count += 1.0
-        len_tip += comp_len(tip)
-
-print "count: ", str(count)
-print "length: ", str(len_tip)
-print "average length: ", str(len_tip/count)
-
-count_tip = 0.0
-count_non_tip = 0.0
-len_tip = 0.0
-len_non_tip = 0.0
-#
-for k, v in tips_dict.items():
-    if k not in tip_review:  # tips not in reviews
+    for k, v in tips_dict.items():
         for tip in v:
-            count_non_tip += 1
+            count += 1.0
             len_tip += comp_len(tip)
-    else:
-        for tip in v:
-            if tip in tip_review[k]:
-                count_tip += 1
-                len_tip += comp_len(tip)
-            else:
-                count_non_tip += 1
-                len_tip += comp_len(tip)
 
-print "average length of tips in review: ", str(len_tip/count_tip)
-print "average length of tips not in review: ", str(len_non_tip/count_non_tip)
+    print "count: ", str(count)
+    print "length: ", str(len_tip)
+    print "average length: ", str(len_tip/count)
+
+    count_tip = 0.0
+    count_non_tip = 0.0
+    len_tip = 0.0
+    len_non_tip = 0.0
+    #
+    for k, v in tips_dict.items():
+        if k not in tip_review:  # tips not in reviews
+            for tip in v:
+                count_non_tip += 1
+                len_non_tip += comp_len(tip)
+        else:
+            for tip in v:
+                if tip in tip_review[k]:
+                    count_tip += 1
+                    len_tip += comp_len(tip)
+                else:
+                    count_non_tip += 1
+                    len_non_tip += comp_len(tip)
+
+    print "average length of tips in review: ", str(len_tip/count_tip)
+    print "average length of tips not in review: ", str(len_non_tip/count_non_tip)
