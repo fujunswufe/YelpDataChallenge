@@ -19,7 +19,7 @@ if __name__ == "__main__":
         text = json_decode.get("text")
 
         sentences = sent_tokenize(text)
-
+        #  maybe there are some non-english words 
         for sent in sentences:
             sent_tokens = word_tokenize(sent)
             review_clean.write(sent_tokens + "\n")
