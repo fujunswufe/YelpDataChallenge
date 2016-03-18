@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     review_file = io.open("review.json", 'r', encoding='utf8')
     # review_file = open("review.json", 'r')
-    review_clean = open("review_clean.txt", "w")
+    review_clean = io.open("review_clean.txt", "w", encoding='utf8')
 
     for line in review_file:
         json_decode = json.loads(line.strip("\n"))
@@ -25,8 +25,10 @@ if __name__ == "__main__":
         for sent in sentences:
             sent_tokens = word_tokenize(sent)
             sent_tokens.append("\n")
-            for word in sent_tokens:
-                review_clean.write(word.encode('utf8'))
+            review_clean.write(" ".join(sent_tokens))
+            # for word in sent_tokens:
+                # review_clean.write(word.encode('utf8'))
+                # review_clean.write("".encode('utf8'))
             # review_clean.write(str(sent_tokens) + "\n")
 
     review_file.close()
