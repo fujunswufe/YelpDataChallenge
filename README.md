@@ -9,3 +9,4 @@ This is the project for Yelp Data Challenge
 
 ## Resorce
 1. Summarization [MEAD](http://www.summarization.com/mead/)
+2. [CS224d project reports](http://cs224d.stanford.edu/reports.html)
