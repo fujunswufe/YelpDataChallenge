@@ -14,3 +14,5 @@ This is the project for Yelp Data Challenge
 4. [Learning Sentence Vector Representations to Summarize Yelp Reviews](http://web.stanford.edu/class/cs224d/reports/KhoslaNeal.pdf)
 5. [NLP Structure](https://www.google.com/search?newwindow=1&espv=2&biw=1280&bih=728&tbm=isch&sa=1&q=nlp+course+structure&oq=nlp+course+structure&gs_l=img.3...204240.205589.0.205729.7.7.0.0.0.0.87.521.7.7.0....0...1c.1.64.img..0.0.0.sc35i1gBnH4#imgrc=akjTNxgIv9YfoM%3A)
 6. [TextRank](https://github.com/davidadamojr/TextRank)
+
+## Modified by MW.
