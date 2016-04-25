@@ -1,4 +1,8 @@
 """
+The original github repository is https://github.com/davidadamojr/TextRank
+"""
+
+"""
 From this paper: https://web.eecs.umich.edu/~mihalcea/papers/mihalcea.emnlp04.pdf
 External dependencies: nltk, numpy, networkx
 Based on https://gist.github.com/voidfiles/1646117
