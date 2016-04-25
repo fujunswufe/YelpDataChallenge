@@ -12,7 +12,7 @@ import itertools
 from operator import itemgetter
 import networkx as nx
 import os
-from summarize.representation import *
+from representation import *
 
 #apply syntactic filters based on POS tags
 def filter_for_tags(tagged, tags=['NN', 'JJ', 'NNP']):
