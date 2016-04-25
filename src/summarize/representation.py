@@ -59,8 +59,10 @@ def build_representation(doc_list, method = 'tfidf'):
 
     count = 0
 
+    print('Tokenizing, may take a while')
     for doc in doc_list:
         doc.sent_tokens = get_sentence_tokens(doc.review)
+    print('Tokenizing accomplished')
 
     if method=='tfidf':
         tfidf = load_tfidf(corpus, dictionary)
@@ -71,23 +73,19 @@ def build_representation(doc_list, method = 'tfidf'):
             for sent_tokens in doc.sent_tokens:
                 sent_vec = conver_to_vector(tfidf[dictionary.doc2bow(sent_tokens)],N)
                 doc.vector = numpy.r_[doc.vector, sent_vec]
-            doc.vector = numpy.delete(doc.vector, 0, 0)
-            index = extract_summary_nopenaty(doc.vector, 3, 1)
-            sentences = sent_tokenize(doc.review)
-            write_system_tip_path = "../../system/task"+str(number)+"_englishSyssum"+str(number)+".txt"
-            write_reference_tip_path ="../../reference/task"+str(number)+"_englishReference"+str(number)+".txt"
-            number = number+1
-            file_w_sys = open(write_system_tip_path , 'w')
-            file_w_ref = open(write_reference_tip_path , 'w')
-
-            file_w_sys.write(sentences[index])
-            file_w_ref.write(doc.tip)
-
-                # count += 1
-                # if(count % 1000==0):
-                #     print(count)
+            # doc.vector = numpy.delete(doc.vector, 0, 0)
+            # index = extract_summary_nopenaty(doc.vector, 3, 1)
+            # sentences = sent_tokenize(doc.review)
+            # write_system_tip_path = "../../system/task"+str(number)+"_englishSyssum"+str(number)+".txt"
+            # write_reference_tip_path ="../../reference/task"+str(number)+"_englishReference"+str(number)+".txt"
+            # number = number+1
+            # file_w_sys = open(write_system_tip_path , 'w')
+            # file_w_ref = open(write_reference_tip_path , 'w')
+            #
+            # file_w_sys.write(sentences[index])
+            # file_w_ref.write(doc.tip)
     elif method=='lda':
-        N = 200
+        N = 50
         lda = load_lda(corpus, dictionary)
         number = 1
         for doc in doc_list:
@@ -96,17 +94,18 @@ def build_representation(doc_list, method = 'tfidf'):
             for sent_tokens in doc.sent_tokens:
                 sent_vec = conver_to_vector(lda[dictionary.doc2bow(sent_tokens)],N)
                 doc.vector = numpy.r_[doc.vector, sent_vec]
-            doc.vector = numpy.delete(doc.vector, 0, 0)
-            index = extract_summary_nopenaty(doc.vector, 3, 1)
-            sentences = sent_tokenize(doc.review)
-            write_system_tip_path = "../../system/task"+str(number)+"_englishSyssum"+str(number)+".txt"
-            write_reference_tip_path ="../../reference/task"+str(number)+"_englishReference"+str(number)+".txt"
-            number = number+1
-            file_w_sys = open(write_system_tip_path , 'w')
-            file_w_ref = open(write_reference_tip_path , 'w')
 
-            file_w_sys.write(sentences[index])
-            file_w_ref.write(doc.tip)
+            # doc.vector = numpy.delete(doc.vector, 0, 0)
+            # index = extract_summary_nopenaty(doc.vector, 3, 1)
+            # sentences = sent_tokenize(doc.review)
+            # write_system_tip_path = "../../system/task"+str(number)+"_englishSyssum"+str(number)+".txt"
+            # write_reference_tip_path ="../../reference/task"+str(number)+"_englishReference"+str(number)+".txt"
+            # number = number+1
+            # file_w_sys = open(write_system_tip_path , 'w')
+            # file_w_ref = open(write_reference_tip_path , 'w')
+            #
+            # file_w_sys.write(sentences[index])
+            # file_w_ref.write(doc.tip)
 
 
     elif method=='word2vec':
@@ -130,18 +129,19 @@ def build_representation(doc_list, method = 'tfidf'):
                     sent_vec += w2v[token]
                 sent_vec = sent_vec/len(tokens)
                 doc.vector = numpy.c_[doc.vector, sent_vec]
-            doc.vector = numpy.delete(doc.vector, 0, 1)
-            doc.vector = doc.vector.transpose()
-            index = extract_summary_nopenaty(doc.vector, 3, 1)
-            sentences = sent_tokenize(doc.review)
-            write_system_tip_path = "../../system/task"+str(number)+"_englishSyssum"+str(number)+".txt"
-            write_reference_tip_path ="../../reference/task"+str(number)+"_englishReference"+str(number)+".txt"
 
-            file_w_sys = open(write_system_tip_path , 'w')
-            file_w_ref = open(write_reference_tip_path , 'w')
-
-            file_w_sys.write(sentences[index])
-            file_w_ref.write(doc.tip)
+            # doc.vector = numpy.delete(doc.vector, 0, 1)
+            # doc.vector = doc.vector.transpose()
+            # index = extract_summary_nopenaty(doc.vector, 3, 1)
+            # sentences = sent_tokenize(doc.review)
+            # write_system_tip_path = "../../system/task"+str(number)+"_englishSyssum"+str(number)+".txt"
+            # write_reference_tip_path ="../../reference/task"+str(number)+"_englishReference"+str(number)+".txt"
+            #
+            # file_w_sys = open(write_system_tip_path , 'w')
+            # file_w_ref = open(write_reference_tip_path , 'w')
+            #
+            # file_w_sys.write(sentences[index])
+            # file_w_ref.write(doc.tip)
 
             number= number+1
 
@@ -155,4 +155,5 @@ if __name__=='__main__':
     # build_representation(document_list, 'tfidf')
     build_representation(document_list, 'tfidf')
     # build_representation(document_list, 'word2vec')
+
     print()

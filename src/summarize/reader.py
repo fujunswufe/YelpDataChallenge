@@ -207,11 +207,13 @@ def load_lda(corpus, dictionary):
     if not os.path.isfile(LDA_MODEL_PATH):
         # Online LDA: extract 100 LDA topics, using 1 pass and updating once every 1 chunk (10,000 documents)
         print('Creating LDA..')
-        lda = models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=200, update_every=1, chunksize=10000, passes=1)
+        lda = models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=50, update_every=1, chunksize=10000, passes=1)
             # extract 100 LDA topics, using 20 full passes, no online updates
         #lda = gensim.models.ldamodel.LdaModel(corpus=mm, id2word=id2word, num_topics=100, update_every=0, passes=20)
         lda.save(LDA_MODEL_PATH)
         print('LDA finished..')
+
+    print('Loading LDA model')
     lda = models.LdaModel.load(LDA_MODEL_PATH)
     return lda
 
@@ -222,6 +224,8 @@ def load_tfidf(corpus, dictionary):
         tfidf = models.TfidfModel(corpus)
         print('TF-IDF created')
         tfidf.save(TFIDF_MODEL_PATH)
+
+    print('Loading TF-IDF model')
     tfidf = models.TfidfModel.load(TFIDF_MODEL_PATH)
     return tfidf
 # doc_list = get_data()
@@ -278,6 +282,7 @@ def load_w2v(corpus, dictionary):
         tfidf = models.Word2Vec(corpus)
         print('Word2vec model created!')
 
+    print('Loading word2vec model')
     w2v = models.Word2Vec.load(W2V_MODEL_PATH)
     print('Loading word2vec model complished!')
     return w2v
@@ -285,12 +290,15 @@ def load_w2v(corpus, dictionary):
 def export_to_attention_model_data_format():
     doc_list = load_yelp_training_data()
     print(len(doc_list))
-    summary_file = io.open(ATTENTION_MODEL_SUMMARY_PATH, 'w', encoding='utf-8')
-    document_file = io.open(ATTENTION_MODEL_DOCUMENT_PATH, 'w', encoding='utf-8')
+    # summary_file = io.open(ATTENTION_MODEL_SUMMARY_PATH, 'w', encoding='utf-8')
+    # document_file = io.open(ATTENTION_MODEL_DOCUMENT_PATH, 'w', encoding='utf-8')
+    document_summary_file = io.open(ATTENTION_MODEL_DOCUMENT_SUMMARY_PATH, 'w', encoding='utf-8')
     for doc in doc_list:
-        summary_file.write(doc.tip+'\n')
-        document_file.write(doc.review+'\n')
-    summary_file.close()
-    document_file.close()
+        # summary_file.write(doc.tip+'\n')
+        # document_file.write(doc.review+'\n')
+        document_summary_file.write(doc.tip+'\t'+doc.review+'\n')
+    # summary_file.close()
+    # document_file.close()
+    document_summary_file.close()
 
 export_to_attention_model_data_format()

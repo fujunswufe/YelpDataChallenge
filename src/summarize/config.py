@@ -13,3 +13,8 @@ FULL_YELP_REVIEW_PATH = '../../data/yelp/yelp_academic_dataset_review.json'
 FULL_YELP_TIP_PATH = '../../data/yelp/yelp_academic_dataset_tip.json'
 ATTENTION_MODEL_SUMMARY_PATH = '../../data/attention/summary.txt'
 ATTENTION_MODEL_DOCUMENT_PATH = '../../data/attention/document.txt'
+ATTENTION_MODEL_DOCUMENT_SUMMARY_PATH = '../../data/attention/document+summary.txt'
+
+# output path
+predict_summary_path = "../../data/output/system/"
+reference_summary_path = "../../data/output/reference/"
