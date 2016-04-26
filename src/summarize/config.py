@@ -18,3 +18,6 @@ ATTENTION_MODEL_DOCUMENT_SUMMARY_PATH = '../../data/attention/document+summary.t
 # output path
 predict_summary_path = "../../data/output/system/"
 reference_summary_path = "../../data/output/reference/"
+
+# business 
+bizID = "../../data/businessID.txt"
