@@ -10,6 +10,7 @@ from config import *
 from representation import *
 
 
+STOPWORD_PATH = '../../data/stopword/stopword_en.txt'
 stopwords = set()  # store all the stopwords in a hash set
 stop_word_input = open(STOPWORD_PATH, 'r')
 for word in stop_word_input:
@@ -113,16 +114,17 @@ def extraction(document):
 
     graph = build_graph_raw(document)  # document is a list of sentences
 
-    calculated_page_rank = nx.pagerank(graph, weight='weight')
+    calculated_page_rank = nx.pagerank(graph, weight=key)
 
     # most important sentences in ascending order of importance
     sentences = sorted(calculated_page_rank, key=calculated_page_rank.get, reverse=True)
 
-    #return a 100 word summary
     summary = ' '.join(sentences)
-    summaryWords = summary.split()
-    summaryWords = summaryWords[0:101]
-    summary = ' '.join(summaryWords)
+
+    summary_sent = summary.split()
+    summary_sent = summary_sent[0:3]  #
+
+    summary = ' '.join(summary_sent)
 
     return summary
 
