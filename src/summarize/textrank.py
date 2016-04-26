@@ -9,8 +9,8 @@ Based on https://gist.github.com/voidfiles/1646117
 import io
 import nltk
 import itertools
-from operator import itemgetter
 import networkx as nx
+from operator import itemgetter
 import os
 from representation import *
 
