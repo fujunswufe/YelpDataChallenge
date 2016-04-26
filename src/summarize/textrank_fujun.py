@@ -93,13 +93,13 @@ def build_graph_raw(nodes):
         node1 = pair[0]
         node2 = pair[1]
 
-        first = process(node1)
+        first = process(node1)  # first is a list of tokens
         second = process(node2)
 
-        if len(first) >= 2 and len(second) >= 2:
+        if len(first) >= 2 and len(second) >= 2:  # math: log(1) doesn't make sense
             w = graph_weight(first, second)
-            if w > 0:
-                gr.add_edge(first, second, weight = w)
+            if w > 0:  # there should be positive weight
+                gr.add_edge(first, second, weight=w)
 
     return G
 
@@ -111,11 +111,11 @@ def extraction(document):
     # sentenceTokens = document.sentences()
     # graph = buildGraph(sentenceTokens)
 
-    graph = build_graph_raw(document)  #
+    graph = build_graph_raw(document)  # document is a list of sentences
 
     calculated_page_rank = nx.pagerank(graph, weight='weight')
 
-    #most important sentences in ascending order of importance
+    # most important sentences in ascending order of importance
     sentences = sorted(calculated_page_rank, key=calculated_page_rank.get, reverse=True)
 
     #return a 100 word summary
