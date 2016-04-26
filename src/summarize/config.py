@@ -2,7 +2,7 @@
 DICT_PATH = "../../data/model/review.dict"
 DICT_TXT_PATH = "../../data/model/review.dict.txt"
 CORPUS_PATH = "../../data/model/review.corpus"
-STOPWORD_PATH = r'../../data/stopword/stopword_en.txt'
+STOPWORD_PATH = '../../data/stopword/stopword_en.txt'
 LDA_MODEL_PATH = '../../data/model/lda.model'
 TFIDF_MODEL_PATH = '../../data/model/tfidf.model'
 W2V_MODEL_PATH = '../../data/model/w2v.model'
