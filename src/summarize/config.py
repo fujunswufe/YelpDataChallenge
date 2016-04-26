@@ -20,4 +20,4 @@ predict_summary_path = "../../data/output/system/"
 reference_summary_path = "../../data/output/reference/"
 
 # business 
-bizID = "../../data/businessID.txt"
+BIZ_ID_PATH = "../../data/businessID.txt"
