@@ -1,15 +1,15 @@
 import  numpy as np
 __author__ = 'Mengdi'
 
-def cosine_similarity(A):
-    similarity = np.dot(A, A.T)
-    square_mag = np.diag(similarity)
-    inv_square_mag = 1 / square_mag
-    inv_square_mag[np.isinf(inv_square_mag)] = 0
-    inv_mag = np.sqrt(inv_square_mag)
-    cosine = similarity * inv_mag
-    cosine = cosine.T * inv_mag
-    return cosine
+# def cosine_similarity(A):
+#     similarity = np.dot(A, A.T)
+#     square_mag = np.diag(similarity)
+#     inv_square_mag = 1 / square_mag
+#     inv_square_mag[np.isinf(inv_square_mag)] = 0
+#     inv_mag = np.sqrt(inv_square_mag)
+#     cosine = similarity * inv_mag
+#     cosine = cosine.T * inv_mag
+#     return cosine
 
 def distance_matrix_py(pts):
     """Returns matrix of pairwise Euclidean distances. Pure Python version."""

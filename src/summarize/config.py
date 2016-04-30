@@ -8,7 +8,8 @@ TFIDF_MODEL_PATH = '../../data/model/tfidf.model'
 W2V_MODEL_PATH = '../../data/model/w2v.model'
 
 # data
-DATA_PATH = "../../data/tip_review.json"
+# DATA_PATH = "../../data/tip_review.json"
+DATA_PATH = "../../data/full_review_tip.json"
 FULL_YELP_REVIEW_PATH = '../../data/yelp/yelp_academic_dataset_review.json'
 FULL_YELP_TIP_PATH = '../../data/yelp/yelp_academic_dataset_tip.json'
 ATTENTION_MODEL_SUMMARY_PATH = '../../data/attention/summary.txt'

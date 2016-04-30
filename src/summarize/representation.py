@@ -3,9 +3,9 @@ import numpy
 
 __author__ = 'Memray'
 
-from summarize.reader import *
-from summarize.config import *
-from summarize.extraction import *
+from reader import *
+from config import *
+from extraction import *
 from gensim import corpora, models, similarities
 import re
 from nltk import sent_tokenize

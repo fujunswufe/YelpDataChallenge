@@ -74,7 +74,7 @@ def top(biz_path, review_path, tip_path, k=5000):
 
     # tip_dict, review_dict
     for biz_id in biz_set_k:
-        temp_dict = {"business_id": biz_id, "review": " ".join(review_dict[biz_id]), "tip": " ".join(tip_dict[biz_id])}
+        temp_dict = {"business_id": biz_id, "review": " ".join(review_dict[biz_id]), "tip": " ".join(tip_dict[biz_id]), "user_id": biz_id}
         output_file.write(json.dumps(temp_dict) + "\n")
     output_file.close()
 

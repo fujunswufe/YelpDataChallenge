@@ -3,7 +3,7 @@ import os
 import io
 from gensim import corpora, models, similarities
 import re
-from summarize.config import *
+from config import *
 from nltk import sent_tokenize
 from nltk import word_tokenize
 
